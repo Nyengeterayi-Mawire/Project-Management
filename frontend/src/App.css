@@ -1,0 +1,736 @@
+body{
+  background-color: #101214;
+}
+.main, .mainHome, .projectHome,.ProjectDashboard,.login,.register{
+  /* border:1px solid blue;  */
+  width: 100%;
+  height: 98vh;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 0px; 
+  background-color: #101214;
+
+} 
+
+.mainTopnav , .mainSidebar , .mainDashboard, .projectTopnav ,.projectSidebar, .projectDashboard, .projectRightnav, .projectTasks{
+  /* border: 1px solid green;  */
+  background-color: #101214; 
+  color: #F6EEEE;
+}
+
+.mainTopnav, .projectTopnav{
+  width : 100% ;
+  height : 10vh; 
+  margin: 0px;
+}  
+.search{
+  /* border: 1px solid red; */
+  width: fit-content;
+  margin: auto; 
+  padding-top: 3vh;
+}
+.search input{
+  width: 200px;
+  height: 15px;
+  padding: 10px; 
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid grey;
+  color:white;
+}
+.search input:hover{
+  border: 2px solid #8F7EE7;
+  cursor: pointer;
+}
+.search input:focus{
+  border: 2px solid #8F7EE7;
+}
+.search button{
+  width: fit-content;
+  height: fit-content;
+  font-size: 16px;
+  font-weight: 550;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-left: 30px;
+  border: 2px solid grey;
+  background-color: transparent;
+  color: white;
+}
+.search button:hover{
+  cursor: pointer;
+  background-color: #8F7EE7;
+  border-color: #8F7EE7;
+} 
+
+.searchDiv{
+  width: 99%;
+  height: 88vh;
+  background-color: rgba(0,0,0,0.6);
+  position: absolute;
+  top : 10vh;
+}
+.searchDiv p{
+  color:white;
+  /* border: 1px solid red; */
+  width : 190px;
+  padding: 10px 10px 10px 20px;
+  font-size: 18px;
+  font-weight: 550;
+  background-color: #454F59;
+  border-radius: 20px;
+  margin:10px;
+}
+.mainSidebar , .projectSidebar{
+  height:88vh; 
+  width :15%; 
+  border-right: 1px solid grey;
+} 
+.mainSidebar li{
+  list-style: none; 
+  font-size: 20px;
+  font-weight: 600; 
+  /* border: 1px solid orange; */
+  margin: 0px;
+}
+.mainDashboard {
+  height:90vh;
+  width:84%; 
+} 
+
+.innerMaindashboard{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projectTasks, .loaderDiv{
+  height:88vh;
+  width:84%;
+  
+  
+}
+.projectRightnav{
+  height:90vh;
+  width:20%;
+  
+}
+.project{
+  
+  width : 200px ;
+  height : 150px;
+  /* height: fit-content; */
+  padding: 10px 10px; 
+  /* margin: 20px 0px 0px 20px;  */
+  background-color: #454F59;
+  border-radius: 20px;
+} 
+
+.project:hover{
+  cursor: pointer;
+  border-radius: 0px;
+  background-color: #8F7EE7;
+}
+.project p{
+  font-size: 20px;
+  font-weight: 700; 
+  max-width: 180px;
+} 
+.link{
+  text-decoration: none;
+  color: white;
+}
+
+
+/*project page*/ 
+.section{  
+  width : 40%;
+  height: fit-content;
+  position: relative;
+}
+.headersDiv{  
+  width: 100%;
+  text-align: center; 
+}
+.headersDiv p{
+  width : 40%;
+}
+.section .header {
+  text-align: center;   
+  margin : 0px;
+  padding: 15px 0px;
+  position: sticky;
+  top:0px;
+
+} 
+.section p{
+  text-align: center;   
+
+} 
+
+.projectRightnav{
+  border-left: 1px solid grey;
+} 
+
+.task{  
+  width : 270px; 
+  height : fit-content;
+  margin : auto;
+  background-color: #454F59;
+  border-radius: 20px; 
+  padding: 10px 0px; 
+  position: relative;
+}  
+
+.task .priority{
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 7px 5px 7px; 
+  border-radius: 10px;
+  background-color: crimson; 
+  font-size: small; 
+  margin:5px 10px 10px 15px;
+  color: white;
+} 
+
+.task .taskName{
+  font-size: 20px;
+  font-weight: 500; 
+  max-width: 210px;   
+  text-align: start; 
+  margin:10px 10px 10px 15px;
+} 
+ .moreIcon{ 
+  width: fit-content;
+  height: fit-content;
+  display :'flex';
+  border-radius: 50%; 
+  position:absolute;
+  top : 15px ;
+  right: 8px;
+}
+.optionsIcon, .addReminder{
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;  
+  padding: 5px 5px;
+  border-radius: 50%;
+  color : white
+}
+.optionsIcon:hover, .addReminder:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+.task .options{
+  position:absolute;  
+  width: fit-content;
+  height:fit-content;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  z-index: 1000; /* Ensure it stays on top */
+  right: 0px; 
+  margin-left: 50px;
+  
+}
+.task .options button{
+  width: 140px; 
+  background-color: grey; 
+  border:2px solid grey;
+  /* outline:1px solid grey;   */
+  color:white;
+  margin: 0px;
+} 
+.task .options button:hover{
+  background-color: #8F7EE7;
+  border-color: #8F7EE7;
+  cursor: pointer;
+}
+
+.taskScroll{
+  height : 80vh;
+  overflow-y: auto;
+  scrollbar-width: none; 
+  /* position: relative; */
+}
+
+.addTask,.authorizeDelete{
+  position: absolute;
+  top:0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0 ,0 ,0 , 0.5) ;
+  display: flex;
+  align-content: center; 
+  color : black
+} 
+
+.addTask .widget, .authorizeDelete .widget{
+  width:300px;
+  height: fit-content;
+  background-color:#454F59;
+  color : white; 
+  padding: 30px 30px;  
+  border-radius: 20px;
+}
+.labelInput{
+  display: flex;
+  flex-direction: column;
+  /* border:1px solid red; */
+  width: fit-content; 
+  padding-bottom: 10px;
+} 
+.labelInput input, .projectDeleteInput{
+  width: 250px; 
+  border-radius: 20px;
+  padding:5px 15px;
+  height: 25px; 
+  color : white;
+  outline: none;
+  background-color: transparent; 
+  border:1px solid grey;
+} 
+.labelInput input:focus{
+  border-color: #8F7EE7;
+}
+textarea{
+  height:100px;
+  width: 250px;
+  padding:10px 15px;
+  scrollbar-width: none;
+  outline : none;
+  background-color: transparent;
+  color:white;
+  border-radius: 20px;
+  text-align: start; 
+  max-width: inherit;
+  word-wrap:break-word;    
+  white-space:pre-wrap;
+} 
+textarea:focus{
+  border-color: #8F7EE7;
+}
+.addTask select{
+  width:80px;
+  height : 30px;
+  /* padding: 10px; */
+}
+.widget label{
+  margin: 5px 10px;
+  font-size: 17px; 
+  font-weight: 600;
+}  
+
+.widget p{
+  margin: 0px;
+}
+.widget .submit{
+  width: 120px;
+  height:30px;
+  font-size: 16px; 
+  font-weight: 600;
+  border-radius: 20px;
+  background-color: crimson;
+  color: white;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+.exitButton{
+  width: fit-content;
+  height: fit-content; 
+  position: absolute;
+  top:0px;
+  right:0px
+}
+.exitButton button{
+  width: fit-content;
+  height: fit-content; 
+  padding: 3px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border: none;
+
+}
+.exitButton button:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
+/*project sidenavbar*/ 
+.projectSidebar{
+  /* border:1px solid blue */
+}  
+ul{
+  /* border: 1px solid red; */
+  padding-left: 0px;
+  margin-left: 0px;
+  /* height:85vh; */
+}
+li{
+  list-style: none;
+  /* border: 1px solid orange; */
+  border-radius: 20px;
+  width: 90%;
+  display: flex;  
+  margin: auto;
+  text-align: center;
+} 
+li:hover,.searchDiv p:hover{
+  cursor: pointer;
+  background-color: #8F7EE7;
+  
+}
+li p{
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 20px 10px 0px;
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 600;
+  /* border: 1px solid lime; */
+} 
+
+/*dashboard page*/
+.projectDashboard .widget{ 
+  /* border:1px solid lime;  */
+  border-radius: 20px;
+  background-color: #454F59;
+  margin : 30px 0px 0px 50px
+} 
+.projectDashboard #calendar{
+  width:fit-content;
+  height: 380px;
+}
+.projectDashboard #reminder{
+  width: 300px;
+  height: 380px;
+  position: relative;
+}
+.projectDashboard #comments{
+  width: 300px;
+  height: 380px;
+}
+
+.projectDashboard .widget .header{
+  font-size: 20px;
+  font-weight: 500; 
+  padding: 25px 15px 15px 15px;
+  border-bottom:1px solid grey;
+}
+
+.projectDashboard .singlePlan{
+  display: flex;
+  border-bottom: 1px solid grey;
+  padding: 12px 12px 12px 15px;
+  margin :auto
+  
+} 
+.projectDashboard .singleReminder{
+  /* display: flex; */
+  border-bottom: 1px solid grey;
+  padding: 12px 12px 12px 15px;
+  position: relative;
+  
+} 
+
+.singlePlan button,.singleReminder button{
+  width: fit-content;
+  height: fit-content; 
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+}
+
+.singlePlan p{
+  padding-left: 10px;
+  /* border: 1px solid white; */
+  /* padding-right: 120px;  */
+  width: 210px ;
+  max-width: 210px;
+ 
+} 
+.singleReminder p{
+  padding-left: 10px;
+  /* border: 1px solid white; */
+  /* padding-right: 120px;  */
+  max-width: 220px;
+  max-height: 30px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow:ellipsis;
+  
+} 
+.singleReminder button{
+  position:absolute;
+  top : 40%;
+  right :15px
+}  
+.scrollDiv{ 
+  height : 300px ;
+  overflow-y: auto;
+  scrollbar-width: none;
+} 
+
+.stat{  
+  margin-top: 10px;
+  height:100px;
+  width:20%
+}
+.stat .name{
+  font-size: 16px; 
+  font-weight: 600; 
+  width: fit-content;
+  padding: 15px;
+  margin: auto;
+} 
+
+.stat .number{
+  font-size: 36px;
+  /* border:1px solid green;  */
+  width: fit-content;
+  margin: auto;
+  /* font-family: 'Lato', sans-serif;  */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700; 
+  color: #8F7EE7;
+}
+
+/*Login and SignUp*/ 
+/* From Uiverse.io by Yaya12085 */ 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* max-width: 350px; */
+  background-color: transparent;
+  width: fit-content;
+  height : fit-content;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  margin:auto;
+}
+
+.title {
+  font-size: 28px;
+  color: #8F7EE7;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #8F7EE7;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: #8F7EE7;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message, .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: #8F7EE7;
+}
+
+.signin a:hover {
+  text-decoration: underline #8F7EE7;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 90%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  background-color: transparent;
+  color : white;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: #8F7EE7;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+}
+
+.submit:hover {
+  background-color: #8F7EE7;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/*loader css*/
+.loader {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+}
+
+.loader div {
+  width: 8%;
+  height: 24%;
+  background: #8F7EE7;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  animation: fade458 1s linear infinite;
+}
+
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+.loader .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+
+.loader .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+
+.loader .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+
+.loader .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+
+.loader .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+
+.loader .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+
+.loader .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+
+.loader .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+
+.loader .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+
+.loader .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+
+.loader .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+
+.loader .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
+}
