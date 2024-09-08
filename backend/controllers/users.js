@@ -1,6 +1,7 @@
 const User = require('../schemas/users'); 
 const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const allUsers = async(req,res) => {
     try{
@@ -41,7 +42,7 @@ const login = async(req,res) => {
             return res.status(404).json({error:'Incorrect password'})
         }
         delete validUsername.password;
-        const token = jwt.sign({userID:validUsername._id},'afagwegowehgoewa',{'expiresIn':'1h'});
+        const token = jwt.sign({userID:validUsername._id},process.env.SECRET_KEY,{'expiresIn':'1h'});
         if(!token){
             return res.status(404).json({error:'Failed to create token'})
         }

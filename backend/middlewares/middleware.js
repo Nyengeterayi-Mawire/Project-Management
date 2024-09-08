@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config()
 
 const middleware = (req,res,next) => {
     console.log(`path : ${req.path} --- method : ${req.method}`); 
@@ -11,7 +12,7 @@ const verifyToken = (req, res, next) => {
     if (token) {
         // const token = authHeader.split(' ')[1]; // Extract token from "Bearer <token>"
         // console.log(token);
-        jwt.verify(token, 'afagwegowehgoewa', (err, user) => {
+        jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
             if (err) {
                 // Handle specific JWT errors
                 if (err.name === 'TokenExpiredError') {
