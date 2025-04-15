@@ -12,7 +12,7 @@ const Completedtasks = () => {
     const navigate = useNavigate();
 
     const deleteCompleted = (id) => {
-        axios.delete('http://localhost:3001/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.delete('http://13.60.163.227/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -25,7 +25,7 @@ const Completedtasks = () => {
         })
     } 
     const moveToInProgress = (id,task) => {        
-        axios.patch('http://localhost:3001/task/update/'+ task._id,{status:'pending'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.patch('http://13.60.163.227/task/update/'+ task._id,{status:'pending'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -39,7 +39,7 @@ const Completedtasks = () => {
         })
     }
     const moveToToDo = (id,task) => {        
-        axios.patch('http://localhost:3001/task/update/'+ task._id,{status:'idle'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.patch('http://13.60.163.227/task/update/'+ task._id,{status:'idle'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }

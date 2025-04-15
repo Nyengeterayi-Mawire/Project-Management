@@ -20,15 +20,13 @@ const Login = ()=> {
         if(form.username.trim()==='' || form.password.trim()===''  ){
             return console.log('All fields must be entered')
         }
-        axios.post('http://localhost:3001/user/login',form).then(res=>{
+        axios.post('http://13.60.163.227/user/login',form).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }else{
                 dispatch(setUser(res.data.user));
-            localStorage.setItem('token',res.data.token);
-            // NotificationManager.success('Successfully logged in');
-            navigate('/project')
-            console.log('logged in',res.data)
+            localStorage.setItem('token',res.data.token);            
+            navigate('/project')            
             }           
             
         }).catch(error=>{
@@ -36,7 +34,7 @@ const Login = ()=> {
                 setError(error.response.data.error)
             }
         })
-        // console.log(form)
+        
         
     }
     return (
@@ -44,22 +42,7 @@ const Login = ()=> {
             <form className="form" onSubmit={handleSubmit}>
                 <p className="title">Log In </p>
                 <p className="message">Login now and get started on your projects </p>
-                    {/* <div class="flex">
-                    <label>
-                        <input required="" placeholder="" type="text" class="input"/>
-                        <span>Firstname</span>
-                    </label>
-
-                    <label>
-                        <input required="" placeholder="" type="text" class="input"/>
-                        <span>Lastname</span>
-                    </label>
-                </div>   */}
-                        
-                {/* <label>
-                    <input required="" placeholder="" type="email" class="input"/>
-                    <span>Email</span>
-                </label>  */}
+                    
                 <label>
                     <input placeholder="" name='username' onChange={handleInput} type="text" className="input"/>
                     <span>Username</span>
@@ -69,10 +52,7 @@ const Login = ()=> {
                     <input required="" placeholder="" name='password' onChange={handleInput} type="password" className="input"/>
                     <span>Password</span>
                 </label>
-                {/* <label>
-                    <input required="" placeholder="" type="password" class="input"/>
-                    <span>Confirm password</span>
-                </label> */} 
+                
                 <p style={{color:'red',textAlign:'center',padding:'0px',margin:'0px'}}>{error}</p>
                 <button className="submit" type='submit'>Submit</button>
                 <p className="signin">Dont have an account ? <Link to='/register'><p>Register</p></Link></p>

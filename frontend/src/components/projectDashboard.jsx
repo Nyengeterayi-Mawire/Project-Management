@@ -52,44 +52,51 @@ const Projectdashboard = () => {
       })
     
     
-    useEffect(()=>{        
-        axios.post('http://localhost:3001/plan/'+projectID,{date:value.$d},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{                       
-            dispatch(setPlans(res.data));
-            setPlansLoading(false)
-        }).catch((error)=>{
-            if(error.response.data.expired){
-                localStorage.clear();
-                navigate('/login');
-            }            
-        })
+    useEffect(()=>{  
+        if(projectID){
+            axios.post('http://13.60.163.227/plan/'+projectID,{date:value.$d},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{                       
+                dispatch(setPlans(res.data));
+                setPlansLoading(false)
+            }).catch((error)=>{
+                if(error.response.data.expired){
+                    localStorage.clear();
+                    navigate('/login');
+                }            
+            })
+        }      
+        
         
     },[value,projectID])
 
-    useEffect(()=>{
-        axios.get('http://localhost:3001/note/'+projectID,{headers : {Authorization:`${localStorage.getItem('token')}`}},{projectID,date:value.$d}).then(res=>{  
-            if(res.data.error){
-               console.error(res.data.error)
-            }else{
-                dispatch(setNotes(res.data));
-                setnotesLoading(false);
-            }
-            
-        }).catch((error)=>{
-            if(error.response.data.expired){
-                localStorage.clear();
-                navigate('/login');
-            }
-        })
-
-        axios.get('http://localhost:3001/task/stats/'+projectID,{headers:{Authorization:localStorage.getItem('token')}}).then(res=>{
-            if(res.data.error){
-                return console.error(res.data.error)
-            }else{                
-                setTaskStats(res.data);
-                setPercentage(res.data.totalTasks/res.data.completedtasks);
-                setstatsLoading(false);
-            }
-        })
+    useEffect(()=>{ 
+        if(projectID){
+            axios.get('http://13.60.163.227/note/'+projectID,{headers : {Authorization:`${localStorage.getItem('token')}`}},{projectID,date:value.$d}).then(res=>{  
+                if(res.data.error){
+                   console.error(res.data.error)
+                }else{
+                    dispatch(setNotes(res.data));
+                    setnotesLoading(false);
+                }
+                
+            }).catch((error)=>{
+                console.log(error)
+                // if(error.response.data.expired){
+                //     localStorage.clear();
+                //     navigate('/login');
+                // }
+            })
+    
+            axios.get('http://13.60.163.227/task/stats/'+projectID,{headers:{Authorization:localStorage.getItem('token')}}).then(res=>{
+                if(res.data.error){
+                    return console.error(res.data.error)
+                }else{                
+                    setTaskStats(res.data);
+                    setPercentage(res.data.totalTasks/res.data.completedtasks);
+                    setstatsLoading(false);
+                }
+            })
+        }
+        
     },[projectID])
 
     // const completeReminder = (index) => {
@@ -97,7 +104,7 @@ const Projectdashboard = () => {
     // } 
 
     const handleCompletePlan = (index,id) => {
-        axios.patch('http://localhost:3001/plan/update/'+id,{data:'data'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.patch('http://13.60.163.227/plan/update/'+id,{data:'data'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -111,7 +118,7 @@ const Projectdashboard = () => {
     }
 
     const handleDeletePlan = (id) => {
-        axios.delete('http://localhost:3001/plan/'+id,{headers:{Authorization:localStorage.getItem('token')}}).then(res=>{
+        axios.delete('http://13.60.163.227/plan/'+id,{headers:{Authorization:localStorage.getItem('token')}}).then(res=>{
             if(res.data.error){
                 return console.error(res.data.error);
             }else{

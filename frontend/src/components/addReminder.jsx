@@ -20,7 +20,7 @@ const Addreminder = () => {
         if(description.trim()=== '' && name.trim()===''){
             return console.log('Description or Name is required')
         } 
-        axios.post('http://localhost:3001/note/create',{name,description,completed:false,projectID},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.post('http://13.60.163.227/note/create',{name,description,completed:false,projectID},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }

@@ -5,7 +5,7 @@ import axios from "axios";
 const Signup = ()=> {
     const [form,setForm] = useState({firstname:'',surname:'',username:'',email:'',password:''});
     const [confirmPassword,setConfirmPassword] = useState('');
-    const navigate = useNavigate
+    const navigate = useNavigate()
 
     const handleInput = (e)=> {
         setForm(state=>state={...state,[e.target.name]:e.target.value});
@@ -18,7 +18,7 @@ const Signup = ()=> {
         if(form.password != confirmPassword){
             return console.log('Incorrect password')
         }
-        axios.post('http://localhost:3001/user/register',form,{headers : {'Authorization':`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.post('http://13.60.163.227/user/signup',form,{headers : {'Authorization':`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }

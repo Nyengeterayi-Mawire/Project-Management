@@ -18,7 +18,7 @@ export const inProgressTaskSllice = createSlice({
             state.value = [{...action.payload,options:false},...state.value]
         },
         displayInProgress : (state,action)=> {
-            console.log(action.payload)
+            
             state.value[action.payload.id].options = !state.value[action.payload.id].options
         }
     }

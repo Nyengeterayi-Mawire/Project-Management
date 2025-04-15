@@ -25,11 +25,10 @@ const Addschedule = ({display,displayFunction}) => {
         if(name.trim()=== ''){
             return console.log('Description is required')
         }     
-        axios.post('http://localhost:3001/plan/create/'+projectID,{name,date : value.$d,complete : false},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.post('http://13.60.163.227/plan/create/'+projectID,{name,date : value.$d,complete : false},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
-            };
-            console.log(res.data) ;
+            };            
             dispatch(addPlan(res.data)) ;
             displayFunction(false); 
         }).catch((error)=>{
@@ -37,7 +36,7 @@ const Addschedule = ({display,displayFunction}) => {
                 localStorage.clear();
                 navigate('/login');
             }
-            console.log(error)
+            
         });
         
     } 

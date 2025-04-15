@@ -16,7 +16,7 @@ const Maindashboard = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{        
-        axios.get('http://localhost:3001/project/user/'+user._id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then((res)=>{ 
+        axios.get('http://13.60.163.227/project/user/'+user._id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then((res)=>{ 
             if(res.data.error){
                 console.log(res.data.error);
             }else{
@@ -43,7 +43,7 @@ const Maindashboard = () => {
         <div className="mainDashboard">
             <div className='innerMaindashboard' style={{width:'90%',margin:'auto'}}>
                 {projects && projects.map((project,index)=>{ 
-                    console.log(project.created)
+                    
                     return <div key={project._id} style={{position:'relative',margin:'20px 0px 0px 20px'}}>
                                 <Link to='/project/dashboard' className="link" onClick={()=>{handleProjectSelect(project._id)}} state={project._id}><div key={project.id} className="project">
                                         <p style={{marginTop:'40px'}}>{project.name}</p>   

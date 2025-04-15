@@ -15,8 +15,9 @@ const allUsers = async(req,res) => {
 const signUp =async(req,res) => {
     try{
         const {name,surname,username,password} = req.body; 
-        const exist = await User.find({username}); 
-        if(exist.length != 0){
+        const exist = await User.findOne({username}); 
+        
+        if(exist){
             return res.status(404).json({error:'Username already exists'})
         }
         const cryptPassword = await bcrypt.hash(password,10);

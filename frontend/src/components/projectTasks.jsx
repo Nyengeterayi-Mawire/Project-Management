@@ -25,18 +25,19 @@ const Projecttasks = () => {
     const projectID = useSelector(state=>state.projects.projectID);
 
     useEffect(()=>{        
-        axios.get('http://localhost:3001/task/'+projectID,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.get('http://13.60.163.227/task/'+projectID,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             dispatch(setToDo(res.data.idletasks));
             dispatch(setInProgress(res.data.pendingtasks));
             dispatch(setCompleted(res.data.completedtasks));
             // setInterval(()=>setLoading(false),1000)     
             setLoading(false)       
-            console.log(res.data)})
+            
+        })
         
     },[projectID]);    
     
     const deleteInProgress = (id) => {
-        axios.delete('http://localhost:3001/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.delete('http://13.60.163.227/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -44,7 +45,7 @@ const Projecttasks = () => {
         })
     }
     const deleteCompleted = (id) => {
-        axios.delete('http://localhost:3001/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.delete('http://13.60.163.227/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }

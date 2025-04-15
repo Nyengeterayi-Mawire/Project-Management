@@ -11,6 +11,7 @@ const Projecttopnav = () => {
         setSearchValue(e.target.value);
         dispatch(search(e.target.value));        
     }
+    
     return (
         <div className="projectTopnav">
             <div className="profile">

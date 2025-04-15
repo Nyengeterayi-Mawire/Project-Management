@@ -15,10 +15,7 @@ const notesSlice = createSlice({
         addNote : (state,action) => {
             state.value = [{...action.payload},...state.value]
         },
-        // displayCompleted : (state,action)=> {
-        //     console.log(action.payload)
-        //     state.value[action.payload.id].options = !state.value[action.payload.id].options
-        // }
+        
     }
 })
 

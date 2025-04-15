@@ -18,7 +18,7 @@ const Addproject = () => {
         if(name.trim()=== ''){
            return console.log('Name is required')
         } 
-        axios.post('http://localhost:3001/project/create',{name,description,options:false,userID},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.post('http://13.60.163.227/project/create',{name,description,options:false,userID},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }

@@ -12,7 +12,7 @@ const Inprogresstasks = () => {
     const navigate = useNavigate();
 
     const deleteInProgress = (id) => {
-        axios.delete('http://localhost:3001/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.delete('http://13.60.163.227/task/remove/'+id,{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -25,7 +25,7 @@ const Inprogresstasks = () => {
         })
     }
     const moveToToDo = (id,task) => {        
-        axios.patch('http://localhost:3001/task/update/'+ task._id,{status:'idle'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.patch('http://13.60.163.227/task/update/'+ task._id,{status:'idle'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -40,7 +40,7 @@ const Inprogresstasks = () => {
         
     }
     const moveToCompleted = (id,task) => {        
-        axios.patch('http://localhost:3001/task/update/'+ task._id,{status:'completed'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
+        axios.patch('http://13.60.163.227/task/update/'+ task._id,{status:'completed'},{headers : {Authorization:`${localStorage.getItem('token')}`}}).then(res=>{
             if(res.data.error){
                 return console.log(res.data.error)
             }
@@ -60,7 +60,7 @@ const Inprogresstasks = () => {
                     <div>
                     {inProgressTasks && inProgressTasks.map((task,index)=>{
                         return < div key={task.id} style={{padding:'10px 0px'}}>
-                            <div key={task.id} className="task">
+                            <div  className="task">
                                 <p className="priority" style={task.priority === 'High Priority'? {backgroundColor:'crimson'}:task.priority === 'Medium Priority'?{backgroundColor:'#F5CD47'}:{backgroundColor:'#4BCE97'}}>{task.priority}</p> 
                                 <p className="taskName">{task.name}</p> 
                                 <div className="moreIcon">

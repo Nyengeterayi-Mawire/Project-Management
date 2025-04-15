@@ -19,7 +19,7 @@ export const toDoTaskSllice = createSlice({
             state.value = [{...action.payload,options:false},...state.value]
         },
         displayToDo : (state,action)=> {
-            console.log(action.payload)
+            
             state.value[action.payload.id].options = !state.value[action.payload.id].options
         }, 
         displayAddTask : (state,action) => {

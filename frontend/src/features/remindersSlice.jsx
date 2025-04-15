@@ -18,7 +18,7 @@ export const remindersSlice = createSlice({
             state.value = state.value.filter(reminder => reminder.id != action.payload)
         },
         completeStatus : (state,action) => {
-            console.log(action.payload,'working')
+           
             state.value[action.payload].completed = !state.value[action.payload].completed 
         }, 
         displayAddReminder : (state) => {

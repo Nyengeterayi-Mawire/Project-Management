@@ -24,11 +24,11 @@ export const projectsSllice = createSlice({
             state.value = [{...action.payload,options:false},...state.value]
         },
         displayProjectOptions : (state,action)=> {
-            console.log(action.payload)
+            
             state.value[action.payload.id].options = !state.value[action.payload.id].options
         }, 
         displayAddProject : (state,action) => {
-            console.log('entering')
+            
             state.addProject = action.payload
         },
         displaySearch : (state)=>{

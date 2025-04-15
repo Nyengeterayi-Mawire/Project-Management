@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import Search from "../components/search";
 const Projecthome = () => {
     const id = useLocation().state
-    console.log('this is the id',id)
+    
     return (        
 
         <div className="projectHome">

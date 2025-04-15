@@ -18,10 +18,7 @@ const plansSlice = createSlice({
         completePlan : (state,action) => {
             state.value[action.payload].complete = !state.value[action.payload].complete
         }
-        // displayCompleted : (state,action)=> {
-        //     console.log(action.payload)
-        //     state.value[action.payload.id].options = !state.value[action.payload.id].options
-        // }
+        
     }
 })
 
